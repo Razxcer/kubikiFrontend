@@ -14,10 +14,6 @@ let kol=0
 
 const aboba=()=>{
     setTimeout(()=>{
-
-    
-    console.log("aboba")
-    console.log("abobaDOM")
     currentPart = document.querySelectorAll('.work-tile-'+props.idPart);
     kol=0;
     for(let i=0; i<props.part.length; i++)
@@ -26,21 +22,19 @@ const aboba=()=>{
         {
             if(props.part[i][j]==0)
             {
-                console.log(currentPart)
                 currentPart[kol].classList.add('not-visible')
-                console.log("Сделал  что-то невидимым")
+                // console.log("Сделал  что-то невидимым")
             }
             if(props.part[i][j]>0)
             {
-                console.log(currentPart)
                 currentPart[kol].classList.remove('not-visible')
-                console.log("Сделал  что-то видимым")
+                // console.log("Сделал  что-то видимым")
             }
             kol+=1;
         }
     }
 
-},200)
+},100)
 
 }
 
@@ -52,9 +46,9 @@ const aboba=()=>{
 <template>
 <div class="part">
     <div class="row" v-for="row in props.part">
-        <div class="tile" :class="'work-tile-'+props.idPart" v-for="tile in row" :style="{width: props.tileSize+'px', height: props.tileSize+'px'}">{{ tile }}</div>
+        <div class="tile" :class="'work-tile-'+props.idPart" v-for="tile in row" :style="{width: props.tileSize+'px', height: props.tileSize+'px'}"></div>
     </div>
-    <div class="forrendr" style="display: none;">{{ aboba()}}</div>
+    <div class="for-rendr" style="display: none;">{{ aboba()}}</div>
 </div>
 </template>
 

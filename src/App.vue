@@ -214,10 +214,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
             if(matrix.value[iteration+i][jteration+j]<1 && partMatrix.value[i][j]>0) matrix.value[iteration+i][jteration+j] = 1
           }
         }
-        setTimeout(()=> {
           partMatrix.value = matrixParts.value[Math.floor(Math.random()*10)]
-        }, 100);
-        
+          DraggingElement.style.left = document.querySelector('.place-for-work-tiles').getBoundingClientRect().x+ window.scrollX+20+"px"   
+          DraggingElement.style.top = document.querySelector('.place-for-work-tiles').getBoundingClientRect().y+ window.scrollY+20+"px"   
         }
       }
     }
