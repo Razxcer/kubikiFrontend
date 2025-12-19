@@ -11,12 +11,13 @@ const props = defineProps({
 let currentPart
 let kol=0
 
-const partMatr = ref(props.part)
 
-console.log(partMatr)
+const aboba=()=>{
+    setTimeout(()=>{
 
-
-document.addEventListener('DOMContentLoaded', ()=>{
+    
+    console.log("aboba")
+    console.log("abobaDOM")
     currentPart = document.querySelectorAll('.work-tile-'+props.idPart);
     kol=0;
     for(let i=0; i<props.part.length; i++)
@@ -25,14 +26,24 @@ document.addEventListener('DOMContentLoaded', ()=>{
         {
             if(props.part[i][j]==0)
             {
+                console.log(currentPart)
                 currentPart[kol].classList.add('not-visible')
                 console.log("Сделал  что-то невидимым")
+            }
+            if(props.part[i][j]>0)
+            {
+                console.log(currentPart)
+                currentPart[kol].classList.remove('not-visible')
+                console.log("Сделал  что-то видимым")
             }
             kol+=1;
         }
     }
 
-})
+},200)
+
+}
+
 
 
 
@@ -40,9 +51,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 <template>
 <div class="part">
-    <div class="row" v-for="row in part">
-        <div class="tile" :class="'work-tile-'+props.idPart" v-for="tile in row" :style="{width: props.tileSize+'px', height: props.tileSize+'px'}">{{ props.part }}</div>
+    <div class="row" v-for="row in props.part">
+        <div class="tile" :class="'work-tile-'+props.idPart" v-for="tile in row" :style="{width: props.tileSize+'px', height: props.tileSize+'px'}">{{ tile }}</div>
     </div>
+    <div class="forrendr" style="display: none;">{{ aboba()}}</div>
 </div>
 </template>
 

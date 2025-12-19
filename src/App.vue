@@ -143,7 +143,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
   let offsetY
 
   document.addEventListener('mousedown',(e)=>{
-    console.log(parts)
     parts.forEach(part => {
       if(e.target.parentNode.parentNode==part && !e.target.classList.contains('not-visible'))
       {
